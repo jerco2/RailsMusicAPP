@@ -1,0 +1,20 @@
+= form_with model: @artist do |f|
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.label :released
+    = f.text_field :released
+    %br
+    = f.label :released_at
+    = f.text_field :released_at
+    %br
+    = f.label :cover_art_url
+    = f.text_field :cover_art_url
+    %br
+    = f.label :kind
+    = f.text_field :kind
+    %br
+    = f.label :length
+    = f.text_field :length
+    %br
+    = f.submit
