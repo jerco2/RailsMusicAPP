@@ -1,0 +1,14 @@
+= form_with model: @tracks do |f|
+    = f.label :url
+    = f.text_field :url
+    %br
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.label :credits
+    = f.text_field :credits
+    %br
+    = f.label :available
+    = f.text_field :available
+    %br
+    = f.submit

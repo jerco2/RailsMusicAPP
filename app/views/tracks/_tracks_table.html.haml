@@ -1,0 +1,24 @@
+%h1 This is from track_table
+%h2 ##TRACK
+%table
+  %thead
+  %tr
+    %th action
+    %th url
+    %th name
+    %th credits
+    %th available 
+  %tbody
+  - @tracks.each do |track|
+    %tr 
+      %td
+        = link_to 'Edit', edit_track_path(track.id) 
+        |
+        = link_to 'Delete', track_path(track.id), method: :delete, data: {confirm: "Are you sure"}
+      %td= track.url
+      %td= track.name
+      %td= track.credits
+      %td= track.available
+
+%br
+= link_to 'New Track', 'tracks/new'
