@@ -20,10 +20,12 @@
         |
         = link_to 'Delete', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}
       %td= artist.name
-      %td= link_to artist.permalink
+      %td= artist.permalink
       %td= artist.bio
       %td= artist.formated_at 
       %td= artist.verified
       %td= artist.verified_at 
       %td= artist.avatar_url
       %td= artist.cover_photo_url
+%br
+= link_to 'New Artist', 'artists/new'
