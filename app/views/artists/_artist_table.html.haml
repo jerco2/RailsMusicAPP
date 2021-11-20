@@ -1,0 +1,29 @@
+%h1 This is from artist_table
+%h2 ##ARTIST
+%table
+  %thead
+  %tr
+    %th action
+    %th name
+    %th permalink
+    %th bio
+    %th formed at 
+    %th verified
+    %th verified at 
+    %th avatar url
+    %th cover photo url
+  %tbody
+  - @artist.each do |artist|
+    %tr 
+      %td
+        = link_to 'Edit', edit_artist_path(artist.id) 
+        |
+        = link_to 'Delete', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}
+      %td= artist.name
+      %td= link_to artist.permalink
+      %td= artist.bio
+      %td= artist.formated_at 
+      %td= artist.verified
+      %td= artist.verified_at 
+      %td= artist.avatar_url
+      %td= artist.cover_photo_url
