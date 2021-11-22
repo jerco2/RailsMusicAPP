@@ -1,5 +1,22 @@
-%h1 This is home page
-
-= link_to 'Artists', '../artists'
-= link_to 'Albums', '../albums'
-= link_to 'Tracks', '../tracks'
+%div{class: 'w-screen h-screen bg-gray-200' }
+  %div{class: 'w-full h-1/5 bg-green-400 flex content-center items-center justify-center'}
+    %h1{class: 'font-bold text-white text-8xl'} RailsMusic
+  %div{class: 'w-full h-4/5 flex items-center justify-around'}
+    %div{class: 'h-1/2 w-1/5 bg-white rounded-lg flex flex-col shadow-xl items-center justify-around'}
+      %div{class: 'h-1/2 w-1/2'}
+        %img{src:'https://cdn-icons-png.flaticon.com/512/195/195128.png'}
+      %div{class: ''}
+        %button{class: 'h-12 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
+          = link_to 'ARTISTS', '../artists'
+    %div{class: 'h-1/2 w-1/5 bg-white rounded-lg flex flex-col shadow-xl items-center justify-around'}
+      %div{class: 'h-1/2 w-1/2'}
+        %img{src:'https://cdn-icons-png.flaticon.com/512/299/299103.png'}
+      %div{class: ''}
+        %button{class: 'h-12 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
+          = link_to 'ALBUMS', '../albums'
+    %div{class:'h-1/2 w-1/5 bg-white rounded-lg flex flex-col shadow-xl items-center justify-around'}
+      %div{class: 'h-1/2 w-1/2'}
+        %img{src: 'https://cdn-icons.flaticon.com/png/512/4795/premium/4795895.png?token=exp=1637557029~hmac=c042750a6a621c6959e9fcbdf6597314'}
+      %div{class: ''}
+        %button{class: 'h-12 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
+          = link_to 'TRACKS', '../tracks'

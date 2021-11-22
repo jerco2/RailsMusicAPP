@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static#home'
 
   get 'static/home' => 'static#home'
+  
   resources :artists
   resources :albums
   resources :tracks
