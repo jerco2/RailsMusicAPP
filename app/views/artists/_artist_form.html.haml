@@ -1,26 +1,31 @@
-= form_with model: @artist do |f|
-    = f.label :name
-    = f.text_field :name
+%div{class:'w-screen h-screen flex flex-col justify-center items-center'}
+  %h1{class:'font-bold text-5xl mb-4'} NEW ARTIST
+  = form_with model: @artist do |f|
+    %div{class:'flex justify-between'}
+      = f.label :name,class:'w-full border border-black p-1'
+      = f.text_field :name,class:'border border-black border-l-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :permalink,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :permalink,class:'border border-black border-l-0  border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :bio,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :bio,class:'border border-black border-l-0 border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :formed_at,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :formed_at,class:'border border-black border-l-0 border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :verified,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :verified,class:'border border-black border-l-0 border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :verified_at,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :verified_at,class:'border border-black border-l-0 border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :avatar_url,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :avatar_url,class:'border border-black border-l-0 border-t-0 p-1'
+    %div{class:'flex justify-between'}
+      = f.label :cover_photo_url,class:'w-full border border-black p-1 border-t-0'
+      = f.text_field :cover_photo_url,class:'border border-black border-l-0 border-t-0 p-1'
     %br
-    = f.label :permalink
-    = f.text_field :permalink
-    %br
-    = f.label :bio
-    = f.text_field :bio
-    %br
-    = f.label :formed_at
-    = f.text_field :formed_at
-    %br
-    = f.label :verified
-    = f.text_field :verified
-    %br
-    = f.label :verified_at
-    = f.text_field :verified_at
-    %br
-    = f.label :avatar_url
-    = f.text_field :avatar_url
-    %br
-    = f.label :cover_photo_url
-    = f.text_field :cover_photo_url
-    %br
-    = f.submit
+    = f.submit 'ADD ARTIST', class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'
+    %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
+      = link_to 'BACK', '/artists'
