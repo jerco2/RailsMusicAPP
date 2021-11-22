@@ -1,31 +1,35 @@
-%h1 This is from artist_table
-%h2 ##ARTIST
-%table
-  %thead
-  %tr
-    %th action
-    %th name
-    %th permalink
-    %th bio
-    %th formed at 
-    %th verified
-    %th verified at 
-    %th avatar url
-    %th cover photo url
-  %tbody
-  - @artist.each do |artist|
-    %tr 
-      %td
-        = link_to 'Edit', edit_artist_path(artist.id) 
-        |
-        = link_to 'Delete', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}
-      %td= artist.name
-      %td= artist.permalink
-      %td= artist.bio
-      %td= artist.formated_at 
-      %td= artist.verified
-      %td= artist.verified_at 
-      %td= artist.avatar_url
-      %td= artist.cover_photo_url
-%br
-= link_to 'New Artist', 'artists/new'
+
+%div{class:'flex flex-col justify-center items-center'}
+  %h2{class: 'font-bold text-5xl mb-4'} ARTISTS
+  %table{class: 'w-4/5 border border-black'}
+    %thead
+    %tr
+      %th{class: 'border border-black'} action
+      %th{class: 'border border-black'} name
+      %th{class: 'border border-black'} permalink
+      %th{class: 'border border-black'} bio
+      %th{class: 'border border-black'} formed at 
+      %th{class: 'border border-black'} verified
+      %th{class: 'border border-black'} verified at 
+      %th{class: 'border border-black'} avatar url
+      %th{class: 'border border-black'} cover photo url
+    %tbody
+    - @artist.each do |artist|
+      %tr 
+        %td{class: 'border border-black text-center'}
+          = link_to 'Edit', edit_artist_path(artist.id), class:'hover:text-green-400'
+          |
+          = link_to 'Delete', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}, class:'hover:text-red-400'
+        %td{class: 'border border-black text-center'}= artist.name
+        %td{class: 'border border-black text-center'}= artist.permalink
+        %td{class: 'border border-black text-center'}= artist.bio
+        %td{class: 'border border-black text-center'}= artist.formated_at 
+        %td{class: 'border border-black text-center'}= artist.verified
+        %td{class: 'border border-black text-center'}= artist.verified_at 
+        %td{class: 'border border-black text-center'}= artist.avatar_url
+        %td{class: 'border border-black text-center'}= artist.cover_photo_url
+  %br
+  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
+    = link_to 'New Artist', 'artists/new'
+  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
+    = link_to 'Back', 'static/home'
