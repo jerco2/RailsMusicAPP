@@ -1,28 +1,29 @@
 %div{class:'flex flex-col justify-center items-center'}
   %h2{class: 'font-bold text-5xl w-4/5 text-center p-4'} TRACKS
-  %table{class: 'w-4/5 rounded-t-lg shadow-2xl'}
-    %thead
-    %tr{class:'text-white'}
-      %th{class: 'bg-green-500 p-4 rounded-tl-lg'} 
-      %th{class: 'bg-green-500 p-4'} 
-      %th{class: 'bg-green-500 p-4'} URL
-      %th{class: 'bg-green-500 p-4'} NAME
-      %th{class: 'bg-green-500 p-4'} CREDITS
-      %th{class: 'bg-green-500 p-4 rounded-tr-lg'} AVAILABLE 
-    %tbody
-    - @tracks.each do |track|
-      %tr 
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center font-medium hover:bg-blue-400 hover:text-white'}
-          = link_to 'Edit', edit_track_path(track.id), class:'' 
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center font-medium hover:bg-red-400 hover:text-white'}
-          = link_to 'Delete', track_path(track.id), method: :delete, data: {confirm: "Are you sure"},class:''
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= track.url
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= track.name
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= track.credits
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= track.available
+  %div{class: 'w-full h-96 overflow-y-auto overflow-x-hidden'}
+    %table{class: 'w-full rounded-t-lg shadow-2xl'}
+      %thead
+      %tr{class:'text-white bg-blue-400'}
+        %th{class: ''} 
+        %th{class: ''} 
+        %th{class: ''} URL
+        %th{class: ''} NAME
+        %th{class: ''} CREDITS
+        %th{class: ''} AVAILABLE 
+      %tbody
+      - @tracks.each do |track|
+        %tr{class: 'bg-gray-100 border border-white text-center'} 
+          %td{class: ' hover:bg-blue-400 hover:text-white'}
+            = link_to 'Edit', edit_track_path(track.id), class:'' 
+          %td{class: ' hover:bg-red-400 hover:text-white'}
+            = link_to 'Delete', track_path(track.id), method: :delete, data: {confirm: "Are you sure"},class:''
+          %td{class: ''}= track.url
+          %td{class: ''}= track.name
+          %td{class: ''}= track.credits
+          %td{class: ''}= track.available
 
   %br
-  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
+  %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'}
     = link_to 'New Track', 'tracks/new'
-  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
+  %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700'}
     = link_to 'Back', 'static/home'

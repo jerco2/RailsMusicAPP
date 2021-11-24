@@ -1,35 +1,61 @@
-%div{class:'flex flex-col justify-center items-center'}
-  %h2{class: 'font-bold text-5xl w-4/5 text-center p-4'} ARTISTS
-  %table{class: 'w-4/5 rounded-t-lg shadow-2xl'}
-    %thead
-    %tr{class:'text-white'}
-      %th{class: 'bg-green-500 p-4 rounded-tl-lg'}
-      %th{class: 'bg-green-500 p-4'} 
-      %th{class: 'bg-green-500 p-4'} NAME
-      %th{class: 'bg-green-500 p-4'} PERMALINK
-      %th{class: 'bg-green-500 p-4'} BIO
-      %th{class: 'bg-green-500 p-4'} FORMED AT 
-      %th{class: 'bg-green-500 p-4'} VERIFIED
-      %th{class: 'bg-green-500 p-4'} VERIFIED AT 
-      %th{class: 'bg-green-500 p-4'} AVATAR URL
-      %th{class: 'bg-green-500 p-4 rounded-tr-lg'} COVER PHOTO URL
-    %tbody
-    - @artist.each do |artist|
-      %tr 
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center font-medium hover:bg-blue-400 hover:text-white'}
-          = link_to 'EDIT', edit_artist_path(artist.id), class:''
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center font-medium hover:bg-red-400 hover:text-white'}
-          = link_to 'DELETE', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}, class: ''
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.name
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.permalink
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.bio
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.formated_at 
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.verified
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.verified_at 
-        %td{class: 'border border-l-0 border-t-0 border-gray-400 text-center p-1'}= artist.avatar_url
-        %td{class: 'border border-r-0 border-t-0 border-gray-400 text-center p-1'}= artist.cover_photo_url
-  %br
-  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
-    = link_to 'New Artist', 'artists/new'
-  %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700'}
-    = link_to 'Back', 'static/home'
+-# %div{class:'flex flex-col justify-center items-center'}
+-#   %h2{class: 'font-bold text-5xl w-4/5 text-center p-4'} ARTISTS
+-#   %div{class: 'w-full h-96 overflow-y-auto overflow-x-hidden'}
+-#     %table{class: 'w-full rounded-t-lg shadow-lg'}
+-#       %thead
+-#       %tr{class:'text-white bg-blue-400'}
+-#         %th{class: ''}
+-#         %th{class: ''} 
+-#         %th{class: ''} NAME
+-#         %th{class: ''} PERMALINK
+-#         %th{class: ''} BIO
+-#         %th{class: ''} FORMED AT 
+-#         %th{class: ''} VERIFIED
+-#         %th{class: ''} VERIFIED AT 
+-#         %th{class: ''} AVATAR URL
+-#         %th{class: ''} COVER PHOTO URL
+-#       %tbody
+-#       - @artist.each do |artist|
+-#         %tr{class: 'bg-gray-100 border border-white text-center'}
+-#           %td{class: ' hover:bg-blue-400 hover:text-white'}
+-#             = link_to 'EDIT', edit_artist_path(artist.id), class:''
+-#           %td{class: ' hover:bg-red-400 hover:text-white'}
+-#             = link_to 'DELETE', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}, class: ''
+-#           %td{class: ''}= artist.name
+-#           %td{class: ''}= artist.permalink
+-#           %td{class: ''}= artist.bio
+-#           %td{class: ''}= artist.formed_at
+-#           %td{class: ''}= artist.verified
+-#           %td{class: ''}= artist.verified_at 
+-#           %td{class: ''}= artist.avatar_url
+-#           %td{class: ''}= artist.cover_photo_url
+-#   %br
+-#   %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'}
+-#     = link_to 'New Artist', 'artists/new'
+-#   %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700'}
+-#     = link_to 'Back', 'static/home'
+
+%body{class: 'w-screen h-screen'}
+  %main{class: 'w-full h-full'}
+    %div{class: 'w-4/5 h-full mx-auto flex flex-col items-center justify-center'}
+      %h1{class: 'font-bold text-2xl'} ARTISTS
+      %div{class: 'w-full h-3/5 mx-auto flex flex-wrap overflow-y-auto overflow-x-hidden'}
+        = link_to 'artists/new' do
+          %div{class: 'w-48 h-64 bg-red-400 m-4 flex justify-center items-center hover:bg-red-900'}
+            %h1{class: 'text-5xl text-white'} +
+        - @artist.each do |artist|
+          %div{class: 'w-48 h-64 bg-gray-100 flex flex-col justify-center items-center m-4 relative shadow-lg'}
+            %div{class:'h-1/2'}
+              - if artist.avatar.attached?
+                = image_tag artist.avatar, class:'h-32 w-32 rounded-full mt-2'
+              - else
+                %p No Picture
+            %div{class:'h-1/2 flex flex-col items-center justify-center'}
+              %p{class:'font-bold text-center'}= artist.name
+            %div{class: 'absolute bottom-0 flex justify-around w-full'}
+              %button{class:'font-bold bg-blue-400 text-white w-1/2 hover:bg-blue-900'}
+                = link_to 'EDIT', edit_artist_path(artist.id)
+              %button{class:'font-bold bg-red-400 text-white w-1/2 hover:bg-red-900'}
+                = link_to 'DELETE', artist_path(artist.id), method: :delete, data: {confirm: "Are you sure"}
+      %button{class: 'mt-12 bg-blue-400 text-white font-bold py-2 px-4 rounded hover:bg-blue-900'}
+        = link_to 'BACK', 'static/home'

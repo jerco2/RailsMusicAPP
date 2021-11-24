@@ -16,10 +16,10 @@
     
     %div{class:'flex justify-between'}
       = f.label :available,class:'w-full border border-black p-1 border-t-0'
-      = f.text_field :available,class:'border border-black border-l-0 border-t-0 p-1'
+      = f.select :available, ['true', 'false'],class:'border border-black border-l-0 border-t-0 p-1'
 
     %br
 
-    = f.submit 'ADD TRACK', class:'cursor-pointer h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'
-    %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
-      = link_to 'BACK', '/artists'
+    = f.submit 'ADD TRACK', class:'cursor-pointer h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'
+    %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'}
+      = link_to 'BACK', '/tracks'

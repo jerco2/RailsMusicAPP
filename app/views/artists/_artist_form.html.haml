@@ -1,5 +1,8 @@
 %div{class:'w-screen h-screen flex flex-col justify-center items-center'}
   %h1{class:'font-bold text-5xl mb-4'} NEW ARTIST
+  - if @artist.errors.any?
+    - @artist.errors.full_messages.each do |error|
+      %p{class:'text-red-400'}= error
 
   = form_with model: @artist do |f|
     %div{class:'flex justify-between'}
@@ -16,19 +19,23 @@
 
     %div{class:'flex justify-between'}
       = f.label :formed_at,class:'w-full border border-black p-1 border-t-0'
-      = f.text_field :formed_at,class:'border border-black border-l-0 border-t-0 p-1'
+      = f.date_field :formed_at,class:'border border-black border-l-0 border-t-0 p-1'
 
     %div{class:'flex justify-between'}
       = f.label :verified,class:'w-full border border-black p-1 border-t-0'
-      = f.text_field :verified,class:'border border-black border-l-0 border-t-0 p-1'
+      = f.select :verified, ['true', 'false'], class:'border border-black border-l-0 border-t-0 p-1'
 
     %div{class:'flex justify-between'}
       = f.label :verified_at,class:'w-full border border-black p-1 border-t-0'
-      = f.text_field :verified_at,class:'border border-black border-l-0 border-t-0 p-1'
-
+      = f.date_field :verified_at,class:'border border-black border-l-0 border-t-0 p-1'
+    
     %div{class:'flex justify-between'}
-      = f.label :avatar_url,class:'w-full border border-black p-1 border-t-0'
-      = f.text_field :avatar_url,class:'border border-black border-l-0 border-t-0 p-1'
+      = f.label :avatar,class:'w-full border border-black p-1 border-t-0'
+      = f.file_field :avatar,class:'border border-black border-l-0 border-t-0 p-1'
+
+    -# %div{class:'flex justify-between'}
+    -#   = f.label :avatar_url,class:'w-full border border-black p-1 border-t-0'
+    -#   = f.text_field :avatar_url,class:'border border-black border-l-0 border-t-0 p-1'
 
     %div{class:'flex justify-between'}
       = f.label :cover_photo_url,class:'w-full border border-black p-1 border-t-0'
@@ -36,6 +43,6 @@
 
     %br
     
-    = f.submit 'ADD ARTIST', class:'cursor-pointer h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'
-    %button{class:'h-12 w-48 text-white font-bold bg-green-400 py-1 px-12 rounded hover:bg-green-700 mb-4'}
+    = f.submit 'ADD ARTIST', class:'cursor-pointer h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'
+    %button{class:'h-12 w-48 text-white font-bold bg-blue-400 py-1 px-12 rounded hover:bg-blue-700 mb-4'}
       = link_to 'BACK', '/artists'
