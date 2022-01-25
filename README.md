@@ -21,8 +21,8 @@ Things you may want to cover:
 
 - Deployment instructions -->
 
-sudo apt install ruby-foreman
-foreman start
+- sudo apt install ruby-foreman
+- foreman start
 
 <!--
 - ... -->
