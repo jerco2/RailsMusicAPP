@@ -21,7 +21,8 @@ Things you may want to cover:
 
 - Deployment instructions -->
 
-if tailwindcss is not working, run "bin/webpack-dev-server" on another terminal.
+sudo apt install ruby-foreman
+foreman start
 
 <!--
 - ... -->
