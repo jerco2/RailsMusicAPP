@@ -3,7 +3,7 @@
 <!-- This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover: -->
+Things you may want to cover:
 
 - Ruby version
 
@@ -19,8 +19,9 @@ Things you may want to cover: -->
 
 - Services (job queues, cache servers, search engines, etc.)
 
-- Deployment instructions
+- Deployment instructions -->
 
 if tailwindcss is not working, run "bin/webpack-dev-server" on another terminal.
 
-- ...
+<!--
+- ... -->
